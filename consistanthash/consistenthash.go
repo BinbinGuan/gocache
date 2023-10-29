@@ -50,7 +50,7 @@ func (m *Map) Get(key string) string {
 
 	hash := int(m.hash([]byte(key)))
 	// Binary search for appropriate replica.
-	idx := sort.Search(len(m.keys), func(i int) bool {
+	idx := sort.Search(len(m.keys), func(i int) bool { //二分法找到满足条件的最小索引值
 		return m.keys[i] >= hash
 	})
 
